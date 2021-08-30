@@ -1,13 +1,10 @@
 <br/>
 <p align="center">
 <a href="https://ethereum.org/en/" target="_blank">
-<img src="./img/png/low.png" width="225" alt="Low logo">
+<img src="./img/png/thumbsup.png" width="225" alt="Low logo">
 </a>
 <a href="https://ethereum.org/en/" target="_blank">
-<img src="./img/png/med.png" width="225" alt="Low logo">
-</a>
-<a href="https://ethereum.org/en/" target="_blank">
-<img src="./img/png/high.png" width="225" alt="Low logo">
+<img src="./img/png/thumbsdown.png" width="225" alt="Low logo">
 </a>
 </p>
 <br/>
@@ -71,9 +68,7 @@ yarn
 
 Deployment scripts are in the [deploy](https://github.com/smartcontractkit/hardhat-starter-kit/tree/main/deploy) directory. If required, edit the desired environment specific variables or constructor parameters in each script, then run the hardhat deployment plugin as follows. If no network is specified, it will default to the Kovan network.
 
-This will deploy to a local hardhat network
-
-This will deploy to a local hardhat network
+This will deploy to a local hardhat network.
 
 ```bash
 npx hardhat deploy
@@ -84,9 +79,26 @@ To deploy to testnet:
 npx hardhat deploy --network rinkeby
 ```
 
-## Create NFT
+# Create NFT & View on OpenSea
 
-Once deployed, you can run a script to create a new NFT. 
+Once deployed, you can run a script to create a new NFT. It'll look something like this: 
+
+[Feeds NFT Opensea](https://testnets.opensea.io/assets/0x2695C58d06501A0f62d3c80e3009DFc655632f7c/0)
+
+This will:
+1. Deploy our NFT Feeds contract
+2. Add a thumbsup and thumbsdown svg as our 2 imageURIs
+3. Create 1 NFT 
+
+## Important notes for SVGs
+
+1. Make sure all the double quotes are single quotes
+
+Using SVGs will allow you to make all the drawings directly on-chain, and store them on chain too! For example, you could store an SVG as a string, and then edit it to change your drawings. 
+
+## Other Notes
+
+1. I wasn't able to make `data:image/png` types work as an imageURI, but hypothetically it should. 
 
 ## Test
 Tests are located in the [test](https://github.com/smartcontractkit/hardhat-starter-kit/tree/main/test) directory, and are split between unit tests and integration tests. Unit tests should only be run on local environments, and integration tests should only run on live environments.
