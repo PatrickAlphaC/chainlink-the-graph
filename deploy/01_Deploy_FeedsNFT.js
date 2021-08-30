@@ -47,7 +47,7 @@ module.exports = async ({
     const feedsNFTContract = new ethers.Contract(feedsNFT.address, FeedsNFT.interface, signer)
     const networkName = networkConfig[chainId]['name']
 
-    log(`Verify with "npx hardhat verify --network ${networkName} ${feedsNFT.address} "${ethUsdPriceFeedAddress}"`)
+    log(`Verify with npx hardhat verify --network ${networkName} ${feedsNFT.address} "${ethUsdPriceFeedAddress}"`)
     log("Adding low URI...")
     let tx = await feedsNFTContract.addLowURI(lowURI)
     await tx.wait(1)

@@ -34,6 +34,7 @@ contract FeedsNFT is ERC721 {
     function create(int highValue) public {
         tokenIdToHighValues[tokenCounter] = highValue;
         emit CreatedFeedsNFT(tokenCounter, highValue);
+        _safeMint(msg.sender, tokenCounter);
         tokenCounter = tokenCounter + 1;
     }
     // You could also just upload the raw SVG and have solildity convert it!
