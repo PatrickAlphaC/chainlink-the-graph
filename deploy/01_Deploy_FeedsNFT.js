@@ -50,6 +50,7 @@ module.exports = async ({
     tx = await feedsNFTContract.create(highValue)
     await tx.wait(1)
     log(`You've made your first NFT!`)
+    log(`Here is the NFT tokenURI: ${await feedsNFTContract.tokenURI(0)}`)
 }
 
 module.exports.tags = ['all', 'feed', 'main']
